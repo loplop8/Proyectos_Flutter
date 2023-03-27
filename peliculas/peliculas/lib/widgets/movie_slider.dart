@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../models/models.dart';
+
 class MovieSlider extends StatelessWidget {
-  const MovieSlider({super.key});
+  final List<Movie> movies;
+  final String? title;
+
+  const MovieSlider({super.key, required this.movies, this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -9,16 +14,18 @@ class MovieSlider extends StatelessWidget {
       width: double.infinity,
       height: 260,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Text("Populares",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        ),
+        if (title != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(title!,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+          ),
         Expanded(
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemBuilder: (_, int index) => const _MoviePoster(),
-            itemCount: 20,
+            itemBuilder: (_, int index) => _MoviePoster(movies[index]),
+            itemCount: movies.length,
           ),
         )
       ]),
@@ -27,7 +34,9 @@ class MovieSlider extends StatelessWidget {
 }
 
 class _MoviePoster extends StatelessWidget {
-  const _MoviePoster();
+  const _MoviePoster(this.movie);
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +48,11 @@ class _MoviePoster extends StatelessWidget {
         GestureDetector(
           onTap: () => Navigator.pushNamed(context, "details",
               arguments: "movie-instance"),
-          child: const ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
             child: FadeInImage(
-              placeholder: AssetImage("assets/no-image.jpg"),
-              image: NetworkImage("https://via.placeholder.com/300x400"),
+              placeholder: const AssetImage("assets/no-image.jpg"),
+              image: NetworkImage(movie.fullPosterImg),
               width: 130,
               height: 180,
               fit: BoxFit.cover,
@@ -53,8 +62,8 @@ class _MoviePoster extends StatelessWidget {
         const SizedBox(
           height: 4,
         ),
-        const Text(
-          "Titulo PELICULA",
+        Text(
+          movie.title,
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
           textAlign: TextAlign.center,
