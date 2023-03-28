@@ -19,7 +19,6 @@ class _MovieSliderState extends State<MovieSlider> {
 
   @override
   void initState() {
-    
     super.initState();
 
     scrollController.addListener(() {
@@ -32,7 +31,6 @@ class _MovieSliderState extends State<MovieSlider> {
 
   @override
   void dispose() {
-    
     super.dispose();
   }
 
@@ -69,22 +67,26 @@ class _MoviePoster extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    movie.heroId = 'slider${movie.id}';
     return Container(
       width: 130,
       height: 260,
       margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Column(children: [
         GestureDetector(
-          onTap: () => Navigator.pushNamed(context, "details",
-              arguments: movie),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            child: FadeInImage(
-              placeholder: const AssetImage("assets/no-image.jpg"),
-              image: NetworkImage(movie.fullPosterImg),
-              width: 130,
-              height: 180,
-              fit: BoxFit.cover,
+          onTap: () =>
+              Navigator.pushNamed(context, "details", arguments: movie),
+          child: Hero(
+            tag: movie.heroId!,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              child: FadeInImage(
+                placeholder: const AssetImage("assets/no-image.jpg"),
+                image: NetworkImage(movie.fullPosterImg),
+                width: 130,
+                height: 180,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),
