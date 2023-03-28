@@ -22,7 +22,9 @@ class DetailsScreen extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const CastingCards()
+        CastingCards(
+          movieId: movie.id,
+        )
       ]))
     ]));
   }
@@ -61,7 +63,7 @@ class _CustomAppBar extends StatelessWidget {
 class _PosterAndTitle extends StatelessWidget {
   final Movie movie;
 
-  const _PosterAndTitle({super.key, required this.movie});
+  const _PosterAndTitle({required this.movie});
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -114,7 +116,7 @@ class _PosterAndTitle extends StatelessWidget {
 class _OverView extends StatelessWidget {
   final Movie movie;
 
-  const _OverView({super.key, required this.movie});
+  const _OverView({required this.movie});
   @override
   Widget build(BuildContext context) {
     return Container(

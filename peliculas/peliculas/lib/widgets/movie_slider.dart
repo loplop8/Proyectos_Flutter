@@ -19,7 +19,7 @@ class _MovieSliderState extends State<MovieSlider> {
 
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
 
     scrollController.addListener(() {
@@ -32,7 +32,7 @@ class _MovieSliderState extends State<MovieSlider> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    
     super.dispose();
   }
 
