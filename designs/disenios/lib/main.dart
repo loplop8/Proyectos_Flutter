@@ -1,5 +1,5 @@
 import 'package:disenios/screens/screens.dart';
-import 'package:disenios/screens/scroll_design.dart';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());

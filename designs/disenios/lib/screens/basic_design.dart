@@ -89,7 +89,7 @@ class _CustomColumnButton extends StatelessWidget {
   final String text;
 
   const _CustomColumnButton(
-      {super.key, required this.icon, required this.text});
+      { required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
