@@ -27,6 +27,8 @@ class ListView1Screen extends StatelessWidget {
                   ))
               .toList(),
           const Divider(),
-        ]));
+        ]
+        )
+        );
   }
 }
