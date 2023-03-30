@@ -79,6 +79,16 @@ class ColumnWithText extends StatelessWidget {
         SizedBox(
           height: 40,
         ),
+        Text(
+            "Ea labore nostrud Lorem ea veniam anim adipisicing ad ut. Dolore laboris consectetur adipisicing do mollit mollit aliqua non do fugiat commodo et ipsum. Sint do in consequat eu eiusmod ad dolore laboris adipisicing veniam. Exercitation duis ad officia occaecat. Ad do quis minim enim ipsum."),
+        SizedBox(
+          height: 40,
+        ),
+        Text(
+            "Ea labore nostrud Lorem ea veniam anim adipisicing ad ut. Dolore laboris consectetur adipisicing do mollit mollit aliqua non do fugiat commodo et ipsum. Sint do in consequat eu eiusmod ad dolore laboris adipisicing veniam. Exercitation duis ad officia occaecat. Ad do quis minim enim ipsum."),
+        SizedBox(
+          height: 40,
+        ),
       ],
     );
   }
@@ -88,8 +98,7 @@ class _CustomColumnButton extends StatelessWidget {
   final IconData icon;
   final String text;
 
-  const _CustomColumnButton(
-      { required this.icon, required this.text});
+  const _CustomColumnButton({required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
