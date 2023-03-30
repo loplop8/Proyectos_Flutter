@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
+
+
 class ScrollScreen extends StatelessWidget {
   const ScrollScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const boxDecoration =  BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: [0.5, 0.5],
-                colors: [Color(0xff7aeccb), Color(0xff50c2dd)])
-                );
-                
+    const boxDecoration = BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0.5, 0.5],
+            colors: [Color(0xff7aeccb), Color(0xff50c2dd)]));
+
     return Scaffold(
       backgroundColor: const Color(0xff50c2dd),
       body: Container(
@@ -67,7 +68,7 @@ class Page2 extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () => {},
+        onPressed: () => {Navigator.pushNamed(context, "home")},
       )),
     );
   }
