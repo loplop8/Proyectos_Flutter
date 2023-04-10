@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_reader/pages/pages.dart';
 
 class MapaPage extends StatelessWidget {
   const MapaPage({super.key});
@@ -7,7 +8,7 @@ class MapaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('MapaPage'),
+        child: HistorialMapasPage(),
       ),
     );
   }
