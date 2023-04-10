@@ -5,8 +5,17 @@ class HistorialMapasPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('HistorialMapasPage'),
-    );
+    return ListView.builder(
+        itemCount: 10,
+        itemBuilder: (_, i) => ListTile(
+              leading: Icon(
+                Icons.map,
+                color: Theme.of(context).primaryColor,
+              ),
+              title: Text("lsjnlsvf"),
+              subtitle: Text("subtitulo"),
+              trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+              onTap: () => {print("Holaaa")},
+            ));
   }
 }
