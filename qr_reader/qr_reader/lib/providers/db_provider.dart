@@ -11,12 +11,12 @@ class DbProvider {
 
   DbProvider._();
 
-  Future get database async {
-    if (_database != null) return _database;
+  Future<Database> get database async {
+    if (_database != null) return _database!;
 
     _database = await initDB();
 
-    return _database;
+    return _database!;
   }
 
   Future<Database> initDB() async {
@@ -77,12 +77,12 @@ class DbProvider {
     return res.isNotEmpty ? ScanModel.fromJson(res.first) : null;
   }
 
-  Future<ScanModel> getAllScans() async {
+  Future<List<ScanModel>> getAllScans() async {
     final db = await database;
 
     final res = await db.query('Scans');
 
-    return res.isNotEmpty ? res.map((s) => ScanModel.fromJson(s)) : [];
+    return res.isNotEmpty ? res.map((s) => ScanModel.fromJson(s)).toList() : [];
   }
 
   Future<List<ScanModel>> getScansPorTipo(String tipo) async {

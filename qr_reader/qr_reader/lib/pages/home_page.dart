@@ -18,7 +18,12 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Center(child: Text("Historial")),
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.delete_forever))
+          IconButton(
+              onPressed: () {
+                Provider.of<ScanListProvider>(context, listen: false)
+                    .borrarTodos();
+              },
+              icon: const Icon(Icons.delete_forever))
         ],
       ),
       body: _HomePageBody(),
@@ -53,7 +58,7 @@ class _HomePageBody extends StatelessWidget {
       case 1:
         {
           scanListProvider.cargarScansPorTipo('http');
-          return const DireccionesPage();
+          return  const DireccionesPage();
         }
 
       default:
