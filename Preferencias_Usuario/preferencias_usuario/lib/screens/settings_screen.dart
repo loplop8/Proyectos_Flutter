@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:preferencias_usuario/widgets/side_menu.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -7,8 +8,13 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("Preferencias"),
+      ),
+      drawer: const SideMenu(),
+      body: const Center(
         child: Text('SettingsScreen'),
       ),
     );
